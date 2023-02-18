@@ -1,14 +1,24 @@
 package com.customer.service.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+
+import javax.persistence.*;
+
 
 @Builder
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="customer_tbl")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
 
     private String email;
 }
+

@@ -5,14 +5,14 @@ spring:
   application:
     name: customer
   datasource:
-    username: 'postgres'
-    url: jdbc:postgresql://localhost:5432/customer
-    password: 'password'
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
-          format_sql: 'true'
+    username: ${POSTGRES_USER}
+    url: ${POSTGRES_URL}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
       hibernate:
-        ddl-auto: update
-        show_sql: 'true'
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect

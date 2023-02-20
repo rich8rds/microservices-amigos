@@ -1,16 +1,17 @@
 version: "3"
 services:
   postgres:
+    container_name: postgres
     image: postgres
     mem_reservation: 1G
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PGDATA: /data/postgres
+      GDATA: /data/postgres
     ports:
       - "5433:5432"
     networks:
-      - richie_network
+      - postgres
     volumes:
       - postgres:/data/postgres
     restart: unless-stopped
@@ -27,11 +28,11 @@ services:
     ports:
       - "8089:80"
     networks:
-      - richie_network
+      - postgres
     restart: unless-stopped
 
 networks:
-  richie_network:
+  postgres:
     driver: bridge
 
 volumes:

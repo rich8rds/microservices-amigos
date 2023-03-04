@@ -1,6 +1,6 @@
-package com.richards.clients;
+package com.richards.clients.fraud;
 
-import com.richards.clients.dto.FraudCheckResponse;
+import com.richards.clients.fraud.dto.FraudCheckResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

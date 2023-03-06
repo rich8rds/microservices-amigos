@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fraud</artifactId>
+    <artifactId>notification</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -43,7 +43,6 @@
             <artifactId>clients</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 
 </project>

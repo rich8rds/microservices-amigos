@@ -5,18 +5,21 @@ import com.customer.service.entity.Customer;
 import com.customer.service.repository.CustomerRepository;
 import com.customer.service.service.CustomerService;
 import com.richards.clients.FraudClient;
+import com.richards.clients.NotificationClient;
 import com.richards.clients.dto.FraudCheckResponse;
+import com.richards.clients.dto.NotificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
 
 @Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
 //    private final String FRAUD_URL = "http://FRAUD/api/v1/fraud-check/{customerId}";
     private final FraudClient fraudClient;
+    private final NotificationClient notificationClient;
 
     @Override
     public void registerCustomer(CustomerRegistrationRequest customerRequest) {
@@ -32,5 +35,14 @@ public class CustomerServiceImpl implements CustomerService {
         if(fraudCheckResponse.isFraudster()) {
             throw new IllegalArgumentException("Fraudster");
         }
+
+        //Send Notification make it async by adding to a queue
+        notificationClient.sendNotification(NotificationRequest.builder()
+                        .customerId(customer.getId())
+                        .email(customer.getEmail())
+                        .message(String.format("Hi %s, welcome to Microservice Architecture & Designs",
+                                customer.getFirstName()))
+                .build());
+
     }
 }

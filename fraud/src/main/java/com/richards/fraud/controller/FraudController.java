@@ -1,6 +1,6 @@
 package com.richards.fraud.controller;
 
-import com.richards.clients.dto.FraudCheckResponse;
+import com.richards.clients.fraud.dto.FraudCheckResponse;
 import com.richards.fraud.service.FraudCheckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

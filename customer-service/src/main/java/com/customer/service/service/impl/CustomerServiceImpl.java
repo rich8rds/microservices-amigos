@@ -4,16 +4,13 @@ import com.customer.service.dto.CustomerRegistrationRequest;
 import com.customer.service.entity.Customer;
 import com.customer.service.repository.CustomerRepository;
 import com.customer.service.service.CustomerService;
-import com.richards.clients.NotificationClient;
-import com.richards.clients.dto.NotificationRequest;
 import com.richards.clients.fraud.FraudClient;
 import com.richards.clients.fraud.dto.FraudCheckResponse;
 
+import com.richards.clients.notification.NotificationClient;
+import com.richards.clients.notification.NotificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor

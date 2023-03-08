@@ -1,4 +1,4 @@
-package $com.richards;
+package com.richards.amqp;
 
 /**
  * Hello world!

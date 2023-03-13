@@ -1,5 +1,3 @@
 spring:
   profiles:
     active: dev
-  main:
-    web-application-type: reactive

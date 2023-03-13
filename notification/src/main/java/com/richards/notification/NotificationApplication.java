@@ -1,6 +1,7 @@
 package com.richards.notification;
 
 import com.richards.amqp.config.RabbitMQMessageProducer;
+import com.richards.clients.notification.NotificationRequest;
 import com.richards.notification.config.NotificationConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,12 +24,18 @@ public class NotificationApplication {
     }
 
 
-    @Bean
-    CommandLineRunner commandLineRunner(RabbitMQMessageProducer producer,
-                                        NotificationConfig notificationConfig) {
-        return args -> {
-            producer.publish("Foo", notificationConfig.getInternalExchange(),
-                    notificationConfig.getInternalNotificationRoutingKey());
-        };
-    }
+//    @Bean
+//    CommandLineRunner commandLineRunner(RabbitMQMessageProducer producer,
+//                                        NotificationConfig notificationConfig) {
+//        return args -> {
+//            String firstName = "Johnny";
+//            NotificationRequest notificationRequest = NotificationRequest.builder()
+//                    .customerId(1L)
+//                    .email("johnnyBlack@gmail.com")
+//                    .message(String.format("Hi %s, welcome to Microservice Architecture & Designs", firstName))
+//                    .build();
+//            producer.publish(notificationRequest, notificationConfig.getInternalExchange(),
+//                    notificationConfig.getInternalNotificationRoutingKey());
+//        };
+//    }
 }

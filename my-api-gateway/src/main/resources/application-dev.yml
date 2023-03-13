@@ -2,8 +2,6 @@ server:
   port: 8060
 
 spring:
-  main:
-    web-application-type: reactive
   application:
     name: api-gateway
   zipkin:

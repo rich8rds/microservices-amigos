@@ -18,7 +18,9 @@
         <module>customer-service</module>
         <module>eureka-server</module>
         <module>clients</module>
-        <module>notification-service</module>
+        <module>my-api-gateway</module>
+        <module>notification</module>
+        <module>amqp</module>
         <module>api-gateway</module>
     </modules>
     <properties>

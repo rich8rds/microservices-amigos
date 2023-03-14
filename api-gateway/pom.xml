@@ -7,8 +7,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>api-gateway</artifactId>
-    <name>Archetype - api-gateway</name>
-    <url>http://maven.apache.org</url>
+    <name>api-gateway</name>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -28,5 +28,14 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

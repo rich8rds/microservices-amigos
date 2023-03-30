@@ -1,0 +1,21 @@
+server:
+  port: 8060
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: api-gateway
+  zipkin:
+    base-url: ${ZIPKIN_URL_DOCKER}
+  cloud:
+    gateway:
+      routes:
+        - id: customer
+          uri: lb://CUSTOMER
+          predicates:
+            - Path=/api/v1/customers/**
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL_DOCKER}

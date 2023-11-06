@@ -1,0 +1,27 @@
+server:
+  port: 8061
+
+spring:
+  application:
+    name: customer
+  datasource:
+    username: ${POSTGRES_USER}
+    url: ${POSTGRES_URL_DOCKER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  zipkin:
+    base-url: ${ZIPKIN_URL_DOCKER}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL_DOCKER}
+

@@ -1,0 +1,26 @@
+server:
+  port: 8062
+
+spring:
+  application:
+    name: fraud
+  datasource:
+    username: ${POSTGRES_USER}
+    url: ${POSTGRES_URL_FRAUD_DOCKER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  zipkin:
+    base-url: ${ZIPKIN_URL_DOCKER}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL_DOCKER}

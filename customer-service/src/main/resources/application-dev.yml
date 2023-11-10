@@ -24,4 +24,8 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_SERVICE_URL}
+    fetch-registry: true
+    register-with-eureka: true
+#  instance:
+#    hostname: localhost
 

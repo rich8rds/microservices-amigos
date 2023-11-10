@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 )
 public interface FraudClient {
     @GetMapping("/{customerId}")
-    FraudCheckResponse isFraudster(@PathVariable Long customerId);
+    FraudCheckResponse isFraudster(@PathVariable("customerId") Long customerId);
 }

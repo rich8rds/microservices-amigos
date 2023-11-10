@@ -6,7 +6,7 @@ spring:
     name: customer
   datasource:
     username: ${POSTGRES_USER}
-    url: ${POSTGRES_URL}
+    url: ${POSTGRES_URL_DOCKER}
     password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
@@ -18,7 +18,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
   zipkin:
-    base-url: ${ZIPKIN_URL}
+    base-url: ${ZIPKIN_URL_DOCKER}
 
 eureka:
   client:
@@ -26,6 +26,6 @@ eureka:
       defaultZone: ${EUREKA_SERVICE_URL}
     fetch-registry: true
     register-with-eureka: true
-#  instance:
-#    hostname: localhost
+  instance:
+    hostname: localhost
 

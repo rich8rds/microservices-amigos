@@ -1,12 +1,12 @@
 server:
-  port: 8061
+  port: 8062
 
 spring:
   application:
-    name: customer
+    name: fraud
   datasource:
     username: ${POSTGRES_USER}
-    url: ${POSTGRES_URL}
+    url: ${POSTGRES_URL_FRAUD_DOCKER}
     password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
@@ -16,9 +16,9 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+
   zipkin:
-    base-url: ${ZIPKIN_URL}
+    base-url: ${ZIPKIN_URL_DOCKER}
 
 eureka:
   client:
@@ -26,6 +26,5 @@ eureka:
       defaultZone: ${EUREKA_SERVICE_URL}
     fetch-registry: true
     register-with-eureka: true
-#  instance:
-#    hostname: localhost
-
+  instance:
+    hostname: localhost
